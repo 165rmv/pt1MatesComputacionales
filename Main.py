@@ -1,3 +1,4 @@
+#\
 # simple transition function method
 
 # Union Method
@@ -11,7 +12,6 @@ def main():
     dS = []
     for i in desiredString: #splits desiredString into chars
         dS.append(i)
-    print(dS)
     #dictionary without values
     transitionTable = {
         "states": None, 
@@ -21,9 +21,23 @@ def main():
         "evaluation": None
     } 
     file = open("test1.txt", "r")
-    for x in file:
-        print(x)
-
+    # \n needs to be splitted
+    # evaluation key needs to be filled maybe another for
+    for idx, x in enumerate(file):
+        splitString = x.split(",")
+        if idx == 0:
+            transitionTable["states"] = splStr
+        elif idx == 1: 
+            transitionTable["alphabet"] = splitString
+        elif idx == 2: 
+            transitionTable["initialState"] = splitString
+        elif idx == 3: 
+            transitionTable["finalStates"] = splitString                        
+        else: 
+            pass
+            
+    
+    print(transitionTable)
     file.close() 
 
 
