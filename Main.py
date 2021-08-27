@@ -12,13 +12,19 @@ def main():
     for i in desiredString: #splits desiredString into chars
         dS.append(i)
     print(dS)
-    #add to transitionTable "states": , "alphabet": , "initialState": , "finalStates": ,"evaluation":
-    transitionTable = {} #empty dictionary
-    f = open("test1.txt", "r")
-    for x in f:
+    #dictionary without values
+    transitionTable = {
+        "states": None, 
+        "alphabet": None, 
+        "initialState": None, 
+        "finalStates": None,
+        "evaluation": None
+    } 
+    file = open("test1.txt", "r")
+    for x in file:
         print(x)
 
-    f.close() 
+    file.close() 
 
 
 
