@@ -26,7 +26,7 @@ def main():
     for idx, x in enumerate(file):
         splitString = x.split(",")
         if idx == 0:
-            transitionTable["states"] = splStr
+            transitionTable["states"] = splitString
         elif idx == 1: 
             transitionTable["alphabet"] = splitString
         elif idx == 2: 
