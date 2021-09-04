@@ -1,46 +1,66 @@
-#\
+import pprint
+dS = []
+
+transitionTable = {
+    "states": [], 
+    "alphabet": [], 
+    "initialState": [], 
+    "finalStates": [],
+    "evaluation": []
+}
+
+def fillDictionary(file):
+    for idx, x in enumerate(file):
+        splStr = x.split(",")
+        if idx == 0:
+            transitionTable["states"] = splStr
+        elif idx == 1: 
+            transitionTable["alphabet"] = splStr
+        elif idx == 2: 
+            transitionTable["initialState"] = splStr
+        elif idx == 3: 
+            transitionTable["finalStates"] = splStr                     
+        elif idx >= 4:
+            transitionTable["evaluation"].append(splStr)
+        else: 
+            pass
+    splitter()
+
+def splitter():
+    # strip \n iterate through all elements
+    # split => in evaluation
+    """
+    for a in transitionTable["evaluation"]:
+        
+        
+        arrKick = a.split("=>")
+        print(arrKick)
+        """
+        #print(i)
+    pass
+
+
 # simple transition function method
+def simTranFunc():
+    pass
 
 # Union Method
+def unionMethod():
+    pass
 
 # Extended transition function
-
+def extenTranFunc():
+    pass
 
 
 def main():
     desiredString = input("Write a desired string: ")
-    dS = []
-    for i in desiredString: #splits desiredString into chars
-        dS.append(i)
-    #dictionary without values
-    transitionTable = {
-        "states": None, 
-        "alphabet": None, 
-        "initialState": None, 
-        "finalStates": None,
-        "evaluation": None
-    } 
+    for i in desiredString: 
+        dS.append(i) 
     file = open("test1.txt", "r")
-    # \n needs to be splitted
-    # evaluation key needs to be filled maybe another for
-    for idx, x in enumerate(file):
-        splitString = x.split(",")
-        if idx == 0:
-            transitionTable["states"] = splitString
-        elif idx == 1: 
-            transitionTable["alphabet"] = splitString
-        elif idx == 2: 
-            transitionTable["initialState"] = splitString
-        elif idx == 3: 
-            transitionTable["finalStates"] = splitString                        
-        else: 
-            pass
-            
-    
-    print(transitionTable)
+    fillDictionary(file)
+    pprint.pprint(transitionTable)
     file.close() 
-
-
 
 if __name__ == "__main__": 
     main()
