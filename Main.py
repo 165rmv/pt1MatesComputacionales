@@ -1,7 +1,7 @@
 import pprint
 import re
-dS = []
 
+dS = []
 transitionTable = {
     "states": [], 
     "alphabet": [], 
@@ -12,7 +12,8 @@ transitionTable = {
 
 def fillDictionary(file):
 	for idx, x in enumerate(file):
-		splStr = re.split(',|=>|\n', x)
+		cleanX = x.strip()
+		splStr = re.split(',|=>|\n', cleanX)
 		if (idx == 0):
 			transitionTable["states"] = splStr
 		elif (idx == 1): 
@@ -26,12 +27,16 @@ def fillDictionary(file):
 		else:
 			pass
 
+# String validator
 def inDictionary():
-	pass
+	"""
+	leng_dict= len(transitionTable['alphabet'])
+	print(leng_dict)
+	"""
 
 # simple transition function method
 def simTranFunc():
-    pass
+	pass
 
 # Union Method
 def unionMethod():
