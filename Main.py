@@ -14,8 +14,7 @@ def fillDictionary(file):
 	for idx, x in enumerate(file):
 		splStr = re.split(',|=>|\n', x)
 		if (idx == 0):
-			if (splStr != ''):
-				transitionTable["states"] = splStr
+			transitionTable["states"] = splStr
 		elif (idx == 1): 
 			if (splStr != ''):
 				transitionTable["alphabet"] = splStr
