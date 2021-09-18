@@ -16,17 +16,13 @@ def fillDictionary(file):
 		if (idx == 0):
 			transitionTable["states"] = splStr
 		elif (idx == 1): 
-			if (splStr != ''):
-				transitionTable["alphabet"] = splStr
+			transitionTable["alphabet"] = splStr
 		elif (idx == 2):
-			if (splStr != ''):
-				transitionTable["initialState"] = splStr
+			transitionTable["initialState"] = splStr
 		elif (idx == 3):
-			if (splStr != ''):
-				transitionTable["finalStates"] = splStr
+			transitionTable["finalStates"] = splStr
 		elif (idx >= 4):
-			if (splStr != ''):
-				transitionTable["evaluation"].append(splStr)
+			transitionTable["evaluation"].append(splStr)
 		else:
 			pass
 
