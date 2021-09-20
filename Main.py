@@ -31,18 +31,18 @@ def fillDictionary(file):
 def inDictionary():
 	s1 = set(transitionTable["alphabet"])
 	s2 = set(dS)
-	if len(s2) == 1:
-		print(s2, "only one char")
-		if(s2 & s1):
-			print("GOOD String")
-		else: 
-			print("BAD string")
-	else:
-		print("more than one char")
-		if(s1 == s2):
-			print(s2, "sets are the same GOOD")
+	#if a=0 String is accepted else String not acccepted
+	if len(s2) == 1: 
+		if(s2 & s1): #if element of dS in alphabet it's accepted
+			a = 0
 		else:
-			print(s2, "BAD string")
+			a = -1
+	else:
+		if(s1 == s2): #if sets are the same it's accepted
+			a = 0
+		else:
+			a = -1
+	return a; 
 
 # simple transition function method
 def simTranFunc():
@@ -56,16 +56,18 @@ def unionMethod():
 def extenTranFunc():
     pass
 
-
 def main():
-	desiredString = input("Write a desired string: ")
+	desiredString = input("Write a desired string: ").lower()
 	for i in desiredString:
 		dS.append(i)
 	file = open("test1.txt", "r")
 	fillDictionary(file)
 	file.close()
-	pprint.pprint(transitionTable)
-	inDictionary()
+	pprint.pprint(transitionTable)	
+	if inDictionary() == -1:
+		quit("String is not accepted")
+	else: 
+		print("String is accepted")
 
 if __name__ == "__main__": 
     main()
