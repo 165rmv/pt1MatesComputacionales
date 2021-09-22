@@ -65,9 +65,9 @@ def main():
 	file.close()
 	pprint.pprint(transitionTable)	
 	if inDictionary() == -1:
-		quit("String is not accepted")
+		quit("\033[91m {}\033[00m".format('String is not accepted'))
 	else: 
-		print("String is accepted")
+		print("\033[92m {}\033[00m".format("String can be processed"))
 
 if __name__ == "__main__": 
     main()
