@@ -2,6 +2,9 @@ import pprint
 import re
 
 dS = []
+firstElement = ""
+lastElement = ""
+dSlength = 0
 transitionTable = {
     "states": [], 
     "alphabet": [], 
@@ -60,6 +63,9 @@ def main():
 	desiredString = input("Write a desired string: ").lower()
 	for i in desiredString:
 		dS.append(i)
+	firstElement = dS[0]
+	lastElement = dS[len(dS)-1]
+	dSlength = len(dS)
 	file = open("test1.txt", "r")
 	fillDictionary(file)
 	file.close()
@@ -68,6 +74,7 @@ def main():
 		quit("\033[91m {}\033[00m".format('String is not accepted'))
 	else: 
 		print("\033[92m {}\033[00m".format("String can be processed"))
+		print(firstElement, lastElement, dSlength)
 
 if __name__ == "__main__": 
     main()
