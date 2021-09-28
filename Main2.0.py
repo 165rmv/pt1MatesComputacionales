@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import pprint
 import re
 
@@ -10,8 +11,9 @@ transitionTable = {
     "alphabet": [], 
     "initialState": [], 
     "finalStates": [],
-    "evaluation": []
+    "evaluation": None
 }
+
 
 def fillDictionary(file):
 	for idx, x in enumerate(file):
@@ -25,10 +27,20 @@ def fillDictionary(file):
 			transitionTable["initialState"] = splStr
 		elif (idx == 3):
 			transitionTable["finalStates"] = splStr
-		elif (idx >= 4):
-			transitionTable["evaluation"].append(splStr)
 		else:
 			pass
+			"""
+			firstKey.append(splStr[0])
+			eval = dict.fromkeys(firstKey)
+			for i in range(len(eval)): 
+				if splStr[i] == eval[i]:
+					print(splStr[i]==eval[i])
+				else:
+					pass
+			#print(eval)
+			"""
+	#return eval
+			
 
 # user String validator
 def inDictionary():
@@ -68,13 +80,21 @@ def main():
 	dSlength = len(dS)
 	file = open("test1.txt", "r")
 	fillDictionary(file)
-	file.close()
+	firstKey = transitionTable["states"]
+	secondKey = transitionTable["alphabet"]
+	eval = dict.fromkeys(firstKey)
+	for y in firstKey:	
+		eval[y] = dict.fromkeys(secondKey)
+	pprint.pprint(eval)
 	pprint.pprint(transitionTable)	
+	
+	file.close()
 	if inDictionary() == -1:
 		quit("\033[91m {}\033[00m".format('String is not accepted'))
 	else: 
 		print("\033[96m {}\033[00m".format("String can be processed"))
 		print(firstElement, lastElement, dSlength)
+
 
 if __name__ == "__main__": 
     main()
